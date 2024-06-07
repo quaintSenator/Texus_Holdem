@@ -4,17 +4,14 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Google.Protobuf;
-using TCCamp;
 using Texus;
 using UnityEngine;
 using UnityEngine.Events;
-using PlayerCreateRsp = TCCamp.PlayerCreateRsp;
 using SERVER_CMD = Texus.SERVER_CMD;
 
 public class Network : MonoBehaviour {
     //将协议号与返回的消息类型对应上
     private readonly Dictionary<int,Type> _responseMsgDic = new Dictionary<int, Type>() {
-        {(int)SERVER_CMD.ServerLoginRsp,typeof(PlayerLoginRsp)},
         {(int)SERVER_CMD.ServerCreateRsp,typeof(PlayerCreateRsp)},//创建回包 = 1005
          {(int)SERVER_CMD.ServerJudgeJoinRsp,typeof(PlayerJoinResult) },//请求加入房间回包 = 1007
          {(int)SERVER_CMD.ServerQuitroomRsp,typeof(PlayerQuitRoomResult) }//请求退出房间回包 = 1008
