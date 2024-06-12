@@ -101,8 +101,13 @@ public class connectBtnBeh : MonoBehaviour
                     if (!hasFoundMySeat)
                     {
                         Debug.Log("My seat not in table!");
+                        break;
                     }
+                    //before load gameBoard:
                     EventModule.Instance.networkRef = network;
+                    
+                    
+                    //load gameBoard:
                     SceneManager.LoadScene("Scenes/GameBoardScene");
                     break;
                 
